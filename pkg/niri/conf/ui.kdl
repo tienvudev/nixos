@@ -1,0 +1,48 @@
+prefer-no-csd
+
+gestures {
+  hot-corners {
+    off
+  }
+}
+
+animations {
+  off
+}
+
+layout {
+  background-color "#444"
+  gaps 0
+  focus-ring { off; }
+  tab-indicator { place-within-column; }
+}
+
+overview {
+  zoom 0.15
+
+  workspace-shadow {
+    color "#444"
+    softness 0
+    offset x=0 y=0
+  }
+}
+
+recent-windows {
+  previews {
+    max-scale 0.2
+  }
+
+  highlight {
+    active-color "#444"
+    padding 0
+  }
+}
+
+window-rule {
+  open-maximized true
+}
+
+window-rule {
+  match title="Picture-in-Picture"
+  open-floating true
+}

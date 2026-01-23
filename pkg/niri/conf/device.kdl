@@ -1,0 +1,19 @@
+output "eDP-1" {
+  scale 1.33
+  position x=0 y=1080
+}
+
+output "HDMI-A-1" {
+  position x=0 y=0
+  mode "1920x1080"
+}
+
+input {
+  keyboard {
+    repeat-delay 200
+  }
+
+  touchpad {
+    disabled-on-external-mouse
+  }
+}
