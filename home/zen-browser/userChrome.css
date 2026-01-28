@@ -11,7 +11,7 @@
 }
 
 zen-workspace {
-  padding-top: 6px !important;
+    padding-top: 6px !important;
   width: calc(100% + var(--zen-toolbox-padding) * 2 - 50px) !important;
   translate: 50px;
 }
@@ -35,7 +35,7 @@ zen-workspace {
   margin: 0 !important;
   background: red;
 }
-  
+
 .zen-essentials-container .tab-background::after {
   background: transparent !important;
 }
@@ -45,10 +45,6 @@ zen-workspace {
 }
 
 .zen-workspace-close-unpinned-tabs-button {
-  display: none;
-}
-
-.pinned-tabs-container-separator:first-child {
   display: none;
 }
 

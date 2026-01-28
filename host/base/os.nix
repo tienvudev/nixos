@@ -6,6 +6,7 @@
 
 let
   users = import ../${host}/user.nix;
+  mkUtil = import ../../util/mk-home-util.nix;
 in
 
 {
@@ -25,8 +26,6 @@ in
     networkmanager.enable = true;
   };
 
-  programs.git.enable = true;
-
   nixpkgs.config.allowUnfree = true;
 
   nix.settings = {
@@ -44,13 +43,12 @@ in
   users.users = import ../../util/mk-user.nix users;
 
   home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
     backupFileExtension = "backup";
 
     extraSpecialArgs = {
       inherit inputs;
       inherit host;
+      inherit mkUtil;
     };
 
     users = import ../../util/mk-home.nix users;

@@ -48,12 +48,16 @@ zen-workspace {
   display: none;
 }
 
+.pinned-tabs-container-separator:first-child {
+  display: none;
+}
+
 #zen-sidebar-foot-buttons {
   gap: 0 !important;
   justify-content: start !important;
 }
 
-#zen-sidebar-foot-buttons>toolbaritem {
+#zen-sidebar-foot-buttons > toolbaritem {
   margin: 0 !important;
 }
 
