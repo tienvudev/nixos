@@ -20,16 +20,19 @@ binds {
   // layout
 
   Mod+Left  { focus-column-left; }
-  Mod+Down  { focus-window-down; }
-  Mod+Up    { focus-window-up; }
   Mod+Right { focus-column-right; }
+  Mod+Up    { focus-window-up; }
+  Mod+Down  { focus-window-down; }
   Mod+Home  { focus-column-first; }
   Mod+End   { focus-column-last; }
 
   Mod+Ctrl+Left   { move-column-left; }
   Mod+Ctrl+Right  { move-column-right; }
-  Mod+Ctrl+Down   { move-workspace-to-monitor-next; }
-  Mod+Ctrl+Up     { move-workspace-to-monitor-previous; }
+  Mod+Ctrl+Up   { move-window-up; }
+  Mod+Ctrl+Down  { move-window-down; }
+
+  Mod+Shift+Down   { move-workspace-to-monitor-next; }
+  Mod+Shift+Up     { move-workspace-to-monitor-previous; }
 
   Mod+BracketLeft   { consume-or-expel-window-left; }
   Mod+BracketRight  { consume-or-expel-window-right; }
@@ -42,6 +45,7 @@ binds {
 
   Mod+F       { maximize-column; }
   Mod+Shift+F { expand-column-to-available-width; }
+  Mod+Ctrl+F { fullscreen-window; }
 
   Mod+C       { center-column; }
   Mod+Shift+C { center-visible-columns; }
