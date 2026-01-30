@@ -1,4 +1,5 @@
 {
+  lib,
   inputs,
   host,
   ...
@@ -7,12 +8,14 @@
 let
   users = import ../${host}/user.nix;
   mkUtil = import ../../util/mk-home-util.nix;
+  mkImports = import ../../util/mk-mod-import.nix;
 in
 
 {
-  imports = [
+  imports = (mkImports "os") ++ [
     ../${host}/hardware.nix
     ../${host}/os.nix
+
     inputs.home-manager.nixosModules.default
   ];
 

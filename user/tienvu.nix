@@ -1,10 +1,6 @@
 { pkgs, inputs, ... }:
 
 {
-  imports = [
-    ../home/dev
-  ];
-
   programs = {
     dev.enable = true;
     firefox.enable = true;

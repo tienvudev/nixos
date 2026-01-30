@@ -15,6 +15,11 @@
         home-manager.follows = "home-manager";
       };
     };
+
+    waydroid-script = {
+      url = "github:casualsnek/waydroid_script";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

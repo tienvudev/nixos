@@ -3,7 +3,7 @@
   config,
   inputs,
   ...
-}:
+}@arg:
 
 prog:
 
@@ -27,48 +27,9 @@ let
     recursive = true;
   };
 
-  progOpt = {
-    options.programs.${prog}.enable = lib.mkEnableOption prog;
-  };
+  system = arg.pkgs.stdenv.hostPlatform.system;
 
-  progConf = config.programs.${prog} or { enable = false; };
-
-  extConfig = i: lib.mkIf progConf.enable i;
-
-  extModule =
-    i:
-
-    let
-      deps = i.deps or [ ];
-
-      depMods = map (i: ../home/${i}) deps;
-
-      depOpts = lib.genAttrs deps (_: {
-        enable = true;
-      });
-
-      depProgs = {
-        programs = depOpts;
-      };
-    in
-
-    {
-      imports = depMods ++ (i.imports or [ ]);
-
-      config = extConfig (lib.recursiveUpdate depProgs (i.config or { }));
-    };
-
-  mkConfig = i: progOpt // (extModule { config = i; });
-
-  mkModule = i: progOpt // (extModule i);
+  modUtil = import ./mk-mod-util.nix arg prog;
 in
 
-{
-  inherit mkSrc;
-
-  inherit extConfig;
-  inherit extModule;
-
-  inherit mkConfig;
-  inherit mkModule;
-}
+{ inherit mkSrc system; } // modUtil
