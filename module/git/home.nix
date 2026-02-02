@@ -2,9 +2,7 @@
 
 (mkUtil arg "git").extConfig {
   programs.git.settings = {
-    settings = {
-      credential.helper = "cache --timeout=86400";
-      init.defaultBranch = "main";
-    };
+    credential.helper = "cache --timeout=86400";
+    init.defaultBranch = "main";
   };
 }

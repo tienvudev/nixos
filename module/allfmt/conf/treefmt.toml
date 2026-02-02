@@ -6,7 +6,7 @@ includes = ["*.nix"]
 [formatter.oxc]
 command = "allfmt"
 options = ["oxc"]
-includes = ["*.css", "*.json"]
+includes = ["*.css", "*.json", "*.ts"]
 
 [formatter.sh]
 command = "allfmt"

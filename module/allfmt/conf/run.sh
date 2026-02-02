@@ -4,7 +4,7 @@ CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}"
 RUNNER="$CONFIG/allfmt/run.sh"
 
 if [ -f "$RUNNER" ] && [ "$RUNNER" != "$0" ]; then
-  exec "$RUNNER"   "$@"
+  exec "$RUNNER" "$@"
 fi
 
 # @arg formatter![treefmt|nix|oxc|sh|toml]

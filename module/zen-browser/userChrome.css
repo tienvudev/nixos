@@ -1,3 +1,8 @@
+/**
+ *  1. essentials randomly block dragging tabs
+ *  2. workspaces might display as dots
+ */
+
 * {
   transition: none !important;
 }
@@ -11,9 +16,10 @@
 }
 
 zen-workspace {
-    padding-top: 6px !important;
+  padding-top: 6px !important;
   width: calc(100% + var(--zen-toolbox-padding) * 2 - 50px) !important;
-  translate: 50px;
+  top: 100%; /* 1 */
+  translate: 50px -100% /* 1 */;
 }
 
 .tabbrowser-tab[pending] {
@@ -48,6 +54,14 @@ zen-workspace {
   display: none;
 }
 
+.pinned-tabs-container-separator {
+  display: none;
+}
+
+.tabbrowser-tab ~ .pinned-tabs-container-separator {
+  display: flex;
+}
+
 #zen-sidebar-foot-buttons {
   gap: 0 !important;
   justify-content: start !important;
@@ -58,8 +72,24 @@ zen-workspace {
 }
 
 #zen-workspaces-button {
-  z-index: 1;
-  top: -140px !important;
+  width: 50px !important;
   display: block !important;
   position: absolute !important;
+  top: -140px !important;
+  z-index: 9;
+}
+
+#zen-workspaces-button > toolbarbutton {
+  width: 22px !important;
+}
+
+/* 2 */
+#zen-workspaces-button > toolbarbutton > img {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+/* 2 */
+#zen-workspaces-button > toolbarbutton::after {
+  display: none;
 }
