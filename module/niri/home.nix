@@ -6,10 +6,9 @@ in
 
 util.mkConfig {
   programs = {
-    alacritty.enable = true;
+    ghostty.enable = true;
     jq.enable = true;
     swaylock.enable = true;
-    zellij.enable = true;
   };
 
   services = {

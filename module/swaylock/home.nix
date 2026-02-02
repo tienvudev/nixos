@@ -5,5 +5,5 @@ let
 in
 
 util.extConfig {
-  xdg.configFile."swaylock/config" = util.mkSrc ./conf;
+  xdg.configFile."swaylock/config" = util.mkSrc ./conf.ini;
 }

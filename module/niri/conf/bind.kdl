@@ -10,12 +10,12 @@ binds {
   // output
 
   Mod+L { spawn "swaylock"; }
-  Mod+P allow-when-locked=true { spawn-sh "~/.local/bin/niri/toggle-out.sh eDP-1"; }
+  Mod+P allow-when-locked=true { spawn-sh "~/.local/bin/niri/toggle-output.sh eDP-1"; }
   Mod+Shift+P { power-off-monitors; }
 
   // app
 
-  Mod+T { spawn "alacritty"; }
+  Mod+T { spawn "ghostty"; }
 
   // layout
 

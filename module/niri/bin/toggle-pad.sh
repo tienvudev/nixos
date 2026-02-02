@@ -1,24 +1,30 @@
 #!/bin/sh
 
-WORKSPACE=$(niri msg --json workspaces | jq -r "first(.[] | select(.is_focused == true))")
-
+WORKSPACE="$(niri msg --json workspaces | jq "first(.[] | select(.is_focused == true))")"
 [ -z "$WORKSPACE" ] && return
 
-OUTPUT=$(echo "$WORKSPACE" | jq -r ".output")
-WORKSPACE_ID=$(echo "$WORKSPACE" | jq ".id")
+OUTPUT="$(echo "$WORKSPACE" | jq -r ".output")"
+[ -z "$OUTPUT" ] && return
 
-SESSION="niri-pad"
-APP_ID="$SESSION-$OUTPUT"
+WORKSPACE_ID="$(echo "$WORKSPACE" | jq ".id")"
+WORKSPACE_IDX="$(echo "$WORKSPACE" | jq ".idx")"
 
-WINDOW=$(niri msg --json windows | jq "first(.[] | select(.app_id == \"$APP_ID\"))")
-WINDOW_ID=$(echo "$WINDOW" | jq ".id")
-WINDOW_WS=$(echo "$WINDOW" | jq ".workspace_id")
+SESSION="niri.pad"
+APP_ID="$SESSION.$OUTPUT"
+
+WINDOW="$(niri msg --json windows | jq "first(.[] | select(.app_id == \"$APP_ID\"))")"
+WINDOW_ID="$(echo "$WINDOW" | jq ".id")"
+WINDOW_WS="$(echo "$WINDOW" | jq ".workspace_id")"
+
+move-pad() {
+  niri msg action move-window-to-workspace --window-id "$WINDOW_ID" --focus false "$@"
+}
 
 if [ -z "$WINDOW" ]; then
-  alacritty --class="$APP_ID" -e zellij attach "$SESSION" -c
+  ghostty --class="$APP_ID"
 elif [ "$WINDOW_WS" = "$WORKSPACE_ID" ]; then
-  niri msg action close-window --id "$WINDOW_ID"
+  move-pad 99
 else
-  niri msg action move-window-to-workspace "$WORKSPACE_ID" --window-id "$WINDOW_ID"
+  move-pad "$WORKSPACE_IDX"
   niri msg action focus-window --id "$WINDOW_ID"
 fi
