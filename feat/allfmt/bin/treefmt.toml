@@ -1,0 +1,19 @@
+[formatter.nix]
+command = "allfmt"
+options = ["nix"]
+includes = ["*.nix"]
+
+[formatter.oxc]
+command = "allfmt"
+options = ["oxc"]
+includes = ["*.css", "*.json", "*js", "*.ts", "*.tsx"]
+
+[formatter.sh]
+command = "allfmt"
+options = ["sh"]
+includes = ["*.sh"]
+
+[formatter.toml]
+command = "allfmt"
+options = ["toml"]
+includes = ["*.toml"]

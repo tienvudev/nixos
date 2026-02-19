@@ -24,7 +24,14 @@
 
   outputs =
     inputs:
-    import ./util/mk-output.nix inputs [
-      "zbook16"
-    ];
+    import ./util/mk-flake.nix {
+      inherit inputs;
+
+      name = "tienvu";
+      featDir = ./feat;
+      hostDir = ./host;
+      userDir = ./user;
+
+      systems = [ "x86_64-linux" ];
+    };
 }

@@ -1,3 +1,0 @@
-{
-  tienvu = true;
-}

@@ -1,8 +1,20 @@
-{ pkgs, inputs, ... }:
+{ pkgs, tienvu, ... }@arg:
 
-{
+let
+  t = tienvu arg "tienvu";
+in
+
+t.mkUser {
+  deps = [
+    "dev"
+    "niri"
+    "winvm"
+    "zen-browser"
+  ];
+
+  feats.local = "nixos";
+
   programs = {
-    dev.enable = true;
     firefox.enable = true;
   };
 
@@ -14,7 +26,8 @@
   home.packages = with pkgs; [
     brave
     ente-auth
-    devenv
+    rpcs3
+    neofetch
   ];
 
   i18n.inputMethod = {
