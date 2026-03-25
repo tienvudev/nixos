@@ -16,10 +16,14 @@ eval "$(argc --argc-eval "$0" "$@")"
 
 case "$argc_fmt" in
 "treefmt")
-  treefmt --config-file "$DIR/treefmt.toml" $argc_args $argc_file
+  treefmt \
+    --config-file "$DIR/treefmt.toml" \
+    --tree-root "$(pwd)" \
+    $argc_args $argc_file
   ;;
 "nix")
   nixfmt $argc_file
+  awk -f "$DIR/nix.awk" -i inplace $argc_file
   ;;
 "oxc")
   oxfmt $argc_file
