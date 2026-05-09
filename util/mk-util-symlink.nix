@@ -6,6 +6,9 @@ name:
 
 let
   inherit (inputs.nixpkgs) lib;
+  inherit (arg.config.nixpkgs) system;
+
+  pkgs = inputs.nixpkgs.legacyPackages.${system};
 
   osLocal = arg.nixosConfig.${top.name}.local;
   local = config.${top.name}.local;
@@ -26,8 +29,10 @@ let
   mkBin = path: {
     ".local/bin/${name}" = mkSrc path;
   };
+
+  mkSh = path: pkgs.writeShellScriptBin name ''exec "${mkPath path}" "$@"'';
 in
 
 {
-  inherit mkSrc mkBin;
+  inherit mkSrc mkBin mkSh;
 }

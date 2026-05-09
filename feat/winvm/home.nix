@@ -8,10 +8,9 @@ t.mkHome {
   services.podman.enable = true;
 
   home.packages = with pkgs; [
+    (t.mkSh ./run.sh)
     argc
     freerdp
-
-    # (util.bin ./run.sh)
   ];
 
   home.file = t.mkBin ./run.sh;

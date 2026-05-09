@@ -21,5 +21,6 @@ t.mkHome {
 
   home.packages = with pkgs; [
     devbox
+    mongodb-compass
   ];
 }
