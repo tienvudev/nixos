@@ -26,7 +26,7 @@ case "$argc_fmt" in
   awk -f "$DIR/nix.awk" -i inplace $argc_file
   ;;
 "oxc")
-  oxfmt $argc_file
+  oxfmt -c "$DIR/oxfmt.json" $argc_file
   ;;
 "sh")
   shfmt -w -i 2 $argc_file
