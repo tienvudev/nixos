@@ -9,11 +9,13 @@ output "HDMI-A-1" {
 }
 
 input {
+  focus-follows-mouse
+
   keyboard {
     repeat-delay 200
   }
 
   touchpad {
-    disabled-on-external-mouse
+    off
   }
 }

@@ -5,5 +5,9 @@ let
 in
 
 t.mkOs {
+  deps = [
+    "bluetui"
+  ];
+
   programs.niri.enable = true;
 }

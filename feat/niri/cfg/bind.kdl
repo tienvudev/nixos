@@ -1,4 +1,9 @@
 binds {
+  // Presentation
+  // WheelScrollUp   { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"; }
+  // WheelScrollDown { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"; }
+  // MouseMiddle  { focus-window-previous; }
+
   // base
 
   Mod+H { show-hotkey-overlay; }
@@ -63,6 +68,7 @@ binds {
   Print       { screenshot; }
   Ctrl+Print  { screenshot-screen; }
   Alt+Print   { screenshot-window; }
+  Mod+F1 { spawn-sh "niri msg pick-color"; }
 
   XF86AudioRaiseVolume  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
   XF86AudioLowerVolume  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }

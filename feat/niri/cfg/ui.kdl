@@ -2,11 +2,12 @@ prefer-no-csd
 
 animations {
   off
+  slowdown 0.5
 }
 
 cursor {
   xcursor-theme "Adwaita"
-  xcursor-size 24
+  xcursor-size 32
 }
 
 gestures {

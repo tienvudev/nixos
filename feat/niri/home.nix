@@ -15,7 +15,7 @@ t.mkHome {
   };
 
   services = {
-    easyeffects.enable = true;
+    # easyeffects.enable = true;
     gnome-keyring.enable = true;
     playerctld.enable = true;
   };
@@ -25,6 +25,8 @@ t.mkHome {
     wifitui
     wiremix
     nautilus
+    xwayland-satellite
+    adwaita-icon-theme
   ];
 
   xdg.configFile.niri = t.mkSrc ./cfg;
