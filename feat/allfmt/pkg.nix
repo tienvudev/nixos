@@ -10,5 +10,5 @@
     treefmt
   ];
 
-  text = ''exec "${./bin/run.sh}" "$@"'';
+  text = ''exec "${./bin}/run.sh" "$@"'';
 }
