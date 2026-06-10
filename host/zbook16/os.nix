@@ -11,10 +11,13 @@ in
 
 t.mkHost {
   system.stateVersion = "25.11";
-
   time.timeZone = "Asia/Ho_Chi_Minh";
-
   feats.local = true;
+
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+  };
 
   deps = [
     "niri"

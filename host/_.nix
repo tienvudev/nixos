@@ -1,11 +1,6 @@
 arg:
 
 {
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
-  };
-
   networking = {
     networkmanager.enable = true;
   };

@@ -10,6 +10,7 @@ t.mkHome {
     "git"
   ];
 
+  # TODO: make vscode feat
   programs = {
     vscode.enable = true;
     vscode.package = pkgs.vscode.fhs;

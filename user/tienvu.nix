@@ -5,43 +5,10 @@ let
 in
 
 t.mkUser {
-  deps = [
-    "dev"
-    "niri"
-    "winvm"
-    "zen-browser"
-  ];
-
-  feats.local = "nixos";
-
-  programs = {
-    firefox.enable = true;
-  };
+  deps = [ "dev" ];
 
   programs.git.settings = {
     user.name = "Tien Vu";
     user.email = "git@tienvu.dev";
-  };
-
-  home.packages = with pkgs; [
-    _7zz
-    fastfetch
-    unrar
-
-    celluloid
-    showtime
-
-    blender
-    brave
-    ente-auth
-    rpcs3
-    umu-launcher
-    cyme
-  ];
-
-  i18n.inputMethod = {
-    enable = true;
-    type = "fcitx5";
-    fcitx5.addons = [ pkgs.fcitx5-bamboo ];
   };
 }

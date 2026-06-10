@@ -11,10 +11,14 @@ in
 
 t.mkHost {
   system.stateVersion = "26.05";
-
   time.timeZone = "Asia/Ho_Chi_Minh";
-
   feats.local = true;
+
+  boot.loader.grub = {
+    enable = true;
+    device = "/dev/sda";
+    useOSProber = true;
+  };
 
   deps = [
     "gnome"

@@ -27,7 +27,7 @@ let
         ${top.name} = import ./mk-util.nix top;
       };
 
-      users = import ./mk-users-home.nix top stateVersion users;
+      users = import ./mk-users-home.nix top name stateVersion users;
     };
   };
 in

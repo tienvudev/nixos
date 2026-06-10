@@ -1,6 +1,11 @@
-{ inputs, userDir, ... }:
+{
+  inputs,
+  hostDir,
+  userDir,
+  ...
+}:
 
-stateVersion: users:
+host: stateVersion: users:
 
 let
   inherit (inputs.nixpkgs) lib;
@@ -10,6 +15,7 @@ lib.mapAttrs (i: _: {
   imports = [
     (userDir + "/_.nix")
     (userDir + "/${i}.nix")
+    (hostDir + "/${host}/users/${i}.nix")
   ];
 
   home.stateVersion = stateVersion;
