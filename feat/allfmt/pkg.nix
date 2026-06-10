@@ -3,11 +3,12 @@
 {
   runtimeInputs = with pkgs; [
     argc
+    csharpier
+    dprint
     nixfmt
     oxfmt
     shfmt
     tombi
-    treefmt
   ];
 
   text = ''exec "${./bin}/run.sh" "$@"'';

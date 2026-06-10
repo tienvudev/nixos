@@ -9,7 +9,7 @@ conf_load() {
   source "$conf"
 
   if [[ -z $name ]]; then
-    name="$1-$(uuidgen)"
+    name="$(basename "$dir")-$(uuidgen)"
   fi
 }
 
@@ -48,6 +48,7 @@ run() {
     --device=/dev/net/tun
     --stop-timeout 120
     -it
+    -d
   )
 
   if [[ -n ${argc_port[@]} ]]; then
@@ -65,14 +66,11 @@ run() {
     args+=(-e "USER_PORTS=$user_ports")
   fi
 
-  if [[ -z $argc_iso ]]; then
-    args+=(-d)
-  else
+  if [[ -n $argc_iso ]]; then
     args+=(-v "$(realpath -m "$argc_iso"):/boot.iso")
   fi
 
-  # echo "${args[@]}"
-  podman "${args[@]}" dockurr/windows:5.14
+  podman "${args[@]}" dockurr/windows:5.15
 }
 
 # @cmd

@@ -1,4 +1,9 @@
-{ lib, tienvu, ... }@arg:
+{
+  lib,
+  pkgs,
+  tienvu,
+  ...
+}@arg:
 
 let
   t = tienvu arg "zbook16";
@@ -9,15 +14,26 @@ t.mkHost {
 
   time.timeZone = "Asia/Ho_Chi_Minh";
 
+  feats.local = true;
+
   deps = [
     "niri"
     "waydroid"
   ];
 
-  feats.local = true;
+  programs = {
+    nix-ld.enable = true;
+    steam.enable = true;
+  };
 
   services = {
     netbird.enable = true;
+    teamviewer.enable = true;
+    udisks2.enable = true;
+  };
+
+  systemd.services.netbird = {
+    path = with pkgs; [ shadow ];
   };
 
   users = {

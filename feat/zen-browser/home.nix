@@ -107,6 +107,7 @@ t.mkHome {
         "devtools.chrome.enabled" = true;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
+        "browser.link.open_newwindow.restriction" = 0;
         "browser.sessionstore.restore_pinned_tabs_on_demand" = false;
         "extensions.formautofill.creditCards.enabled" = false;
         "signon.rememberSignons" = false;

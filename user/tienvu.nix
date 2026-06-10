@@ -24,10 +24,19 @@ t.mkUser {
   };
 
   home.packages = with pkgs; [
+    _7zz
+    fastfetch
+    unrar
+
+    celluloid
+    showtime
+
+    blender
     brave
     ente-auth
     rpcs3
-    neofetch
+    umu-launcher
+    cyme
   ];
 
   i18n.inputMethod = {

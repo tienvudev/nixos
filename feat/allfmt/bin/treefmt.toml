@@ -17,3 +17,8 @@ includes = ["*.sh"]
 command = "allfmt"
 options = ["toml"]
 includes = ["*.toml"]
+
+[formatter.cs]
+command = "allfmt"
+options = ["cs"]
+includes = ["*.cs"]
