@@ -1,6 +1,7 @@
 {
   users.tienvu = {
     imports = [
+      "self.base"
       "self.dev"
       "self.niri"
     ];

@@ -1,0 +1,4 @@
+[formatter.allfmt]
+command = "allfmt"
+options = ["format"]
+includes = ["*.*"]

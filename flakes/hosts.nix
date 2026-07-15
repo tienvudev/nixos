@@ -36,6 +36,8 @@
       config = {
         system.stateVersion = host.stateVersion;
 
+        networking.hostName = lib.removePrefix "host:" hostname;
+
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;

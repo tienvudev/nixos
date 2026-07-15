@@ -1,9 +1,11 @@
 {
   homes.dev = {
     imports = [
-      "self.allfmt"
+      "self.bash"
       "self.git"
-      "self.vscode"
+      # "self.vscode"
+      "self.vscodium"
+      "self.zed-editor"
     ];
 
     packages = [

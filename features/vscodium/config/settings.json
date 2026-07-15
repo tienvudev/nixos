@@ -1,0 +1,57 @@
+{
+  "$schema": "vscode://schemas/settings/user",
+
+  "telemetry.feedback.enabled": false,
+  "workbench.startupEditor": "none",
+
+  "editor.defaultFormatter": "jkillian.custom-local-formatters",
+  "editor.formatOnSave": true,
+  "customLocalFormatters.formatters": [
+    {
+      "command": "treefmt --stdin \"${file}\"",
+      "languages": ["*"]
+    }
+  ],
+
+  // jakubkozera.csharp-dev-tools
+  "editor.semanticTokenColorCustomizations": {
+    "rules": {
+      "interface": {
+        "foreground": "#b8ce82"
+      },
+      "namespace": "#cccccc",
+      "enum": "#b8ce82",
+      "struct": {
+        "foreground": "#86C691"
+      }
+    }
+  },
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "entity.name.type.interface.cs",
+        "settings": {
+          "foreground": "#b8ce82"
+        }
+      },
+      {
+        "scope": "entity.name.type.enum.cs",
+        "settings": {
+          "foreground": "#b8ce82"
+        }
+      },
+      {
+        "scope": "entity.name.type.struct.cs",
+        "settings": {
+          "foreground": "#86C691"
+        }
+      },
+      {
+        "scope": "variable.other.enummember.cs",
+        "settings": {
+          "foreground": "#4FC1FF"
+        }
+      }
+    ]
+  }
+}

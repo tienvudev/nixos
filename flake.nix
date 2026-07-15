@@ -11,6 +11,9 @@
     zen-browser.url = "github:0xc000022070/zen-browser-flake/1.20t-1773630823";
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
     zen-browser.inputs.home-manager.follows = "home-manager";
+
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    nix-vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs:

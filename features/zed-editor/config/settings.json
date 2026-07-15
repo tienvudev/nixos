@@ -1,0 +1,73 @@
+{
+  "git_panel": {
+    "scrollbar": {
+      
+    },
+    "tree_view": true
+  },
+  "$schema": "zed://schemas/settings",
+
+  // BASE
+
+  "cli_default_open_behavior": "new_window",
+
+  "disable_ai": true,
+
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+
+  // UI
+
+  "ui_font_size": 20,
+  "buffer_font_size": 18,
+
+  "title_bar": {
+    "show_sign_in": false
+  },
+
+  "project_panel": {
+    "dock": "left"
+  },
+
+  "git": {
+    "inline_blame": {
+      "min_column": 80
+    }
+  },
+
+  // FILES
+
+  "formatter": {
+    "external": {
+      "command": "treefmt",
+      "arguments": ["--stdin", "{buffer_path}"]
+    }
+  },
+
+  "languages": {
+    "Nix": {
+      "language_servers": ["nixd", "!nil"]
+    },
+
+    "Shell Script": {
+      "tab_size": 2
+    }
+  },
+
+  "file_types": {
+    "AWK": ["gawk"],
+
+    "JSONC": ["**/zed-editor/**/*.json", "**/vscodium/**/*.json"]
+  },
+
+  // MISC
+
+  "auto_install_extensions": {
+    "awk": true,
+    "html": true,
+    "nix": true,
+    "toml": true
+  }
+}
